@@ -1,22 +1,24 @@
-# You should always specify a full version here to ensure all of your developers
-# are running the same version of Node.
-FROM node:7.8.0
 
-# Override the base log level (info).
+FROM node
+
 ENV NPM_CONFIG_LOGLEVEL warn
+ARG app_env
+ENV APP_ENV $app_env
 
-# Install and configure `serve`.
-RUN npm install -g serve
-CMD serve -s build
-EXPOSE 5000
+RUN mkdir -p /frontend
+WORKDIR /frontend
+COPY ./frontend ./
 
-# Install all dependencies of the current project.
-COPY package.json package.json
-COPY npm-shrinkwrap.json npm-shrinkwrap.json
 RUN npm install
 
-# Copy all local files into the image.
-COPY . .
+CMD if [ ${APP_ENV} = production ]; \
+	then \
+	npm install -g http-server && \
+	npm run build && \
+	cd build && \
+	hs -p 3000; \
+	else \
+	npm run start; \
+	fi
 
-# Build for production.
-RUN npm run build --production
+EXPOSE 3000
