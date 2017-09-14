@@ -9,8 +9,7 @@
   width: 100%;
   min-height: 61px;
   overflow: hidden;
-  background: #323232;
-}
+  background: #262728; }
 
 .header__title {
   float: left;

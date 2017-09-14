@@ -59,17 +59,13 @@ html {
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   cursor: default;
-  /*background-color: #262728;*/
-  background-color: #fafafa;
-}
+  background-color: #fafafa; }
 
 body {
   font-family: "aktiv-grotesk", Helvetica Neue, Arial, sans-serif;
   font-size: 0.875rem;
   line-height: 1.42857;
-  /*color: #aaabac;*/
-  color: #50c454;
-}
+  color: #fafafa; }
 
 a {
   background-color: transparent; }
