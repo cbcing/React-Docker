@@ -21,7 +21,7 @@ export class HomePage extends React.Component {
       <section>
         <ContentHeader
           section="Spotlight"
-          title="Featured Tracks"
+          title="音乐的力量"
         />
 
         <Tracklist compactLayout={true} />
