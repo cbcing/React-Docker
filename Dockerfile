@@ -5,9 +5,9 @@ ENV NPM_CONFIG_LOGLEVEL warn
 ARG app_env
 ENV APP_ENV $app_env
 
-RUN mkdir -p /cbc
-WORKDIR /cbc
-COPY ./cbc ./
+RUN mkdir -p /app
+WORKDIR /app
+COPY ./app ./
 
 RUN npm install
 
@@ -16,9 +16,9 @@ CMD if [ ${APP_ENV} = production ]; \
 	npm install -g http-server && \
 	npm run build && \
 	cd build && \
-	hs -p 3000; \
+	hs -p 8080; \
 	else \
 	npm run start; \
 	fi
 
-EXPOSE 3000
+EXPOSE 8080
